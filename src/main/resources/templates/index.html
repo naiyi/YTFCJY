@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
@@ -14,8 +13,8 @@
   </head>
   <body>
     <div th:if="${exist}">
-      <table id="tblDetail" border="1" cellpadding="0" cellspacing="0" class="SearchResultTable" style="width: 932px;">
-          <caption>合同详细信息（编号：<span th:text="${contract.contract_no}"></span>）</caption>
+      <table id="tblDetail" border="1" cellpadding="0" cellspacing="0" class="SearchResultTable">
+          <caption th:text="${contract_no_str}">合同详细信息（编号：）</caption>
           <tbody>
               <tr th:switch="${contract.contract_type}">
                   <th><label for="contract_type">合同类型</label></th>

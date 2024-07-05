@@ -46,6 +46,8 @@ public class TemplateController {
 
         model.addAttribute("contract", contract.get());
         model.addAttribute("exist", true);
+        // 合同编号拼完字符串再传输，否则模板内要进入额外html元素，会导致字号先变大再变小
+        model.addAttribute("contract_no_str", "合同详细信息（编号："+contract.get().getContract_no()+"）");
 
         // 还需要返回服务器当前时间，格式2024/7/2 15:33:15
         ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneId.of("Asia/Shanghai"));

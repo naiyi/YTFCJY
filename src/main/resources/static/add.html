@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-        <title>WeUI</title>
+        <title>房产交易</title>
         <!-- 引入 WeUI CDN 链接 -->
-        <link rel="stylesheet" href="https://res.wx.qq.com/t/wx_fed/weui-source/res/2.5.16/weui.min.css"/>
+        <link rel="stylesheet" href="https://res.wx.qq.com/t/wx_fed/weui-source/res/2.6.13/weui.min.css"/>
         <!-- <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
         <script src="https://res.wx.qq.com/t/wx_fed/weui.js/res/1.2.21/weui.min.js"></script>
         <script src="jquery.min.js"></script>
@@ -28,7 +28,7 @@
                       <label for="contract_no" class="weui-cell weui-cell_active">
                         <div class="weui-cell__hd"><span class="weui-label">合同编号</span></div>
                         <div class="weui-cell__bd">
-                            <input id="contract_no" class="weui-input" placeholder="必填项" type="number" required emptyTips="请输入合同编号" pattern="[0-9]{11}" notMatchTips="合同编号应为11位数字"/>
+                            <input id="contract_no" class="weui-input" placeholder="必填项" required emptyTips="请输入合同编号" pattern="REG_CONTRACTNO" notMatchTips="合同编号应为11位数字" maxlength="11"/>
                         </div>
                       </label>
 
@@ -85,7 +85,9 @@
                         <div class="weui-cell__bd">
                           <div class="weui-flex">
                             <!-- 可以保留0~2位小数^(([1-9]{1}\d*)|(0{1}))(\.\d{0,2})?$，如果强制两位，改成^(([1-9]{1}\d*)|(0{1}))(\.\d{2})$ -->
-                            <div class="weui-flex__item"><input id="house_area" class="weui-input" placeholder="必填项(数字)" type="number" pattern="REG_AREAENUM" notMatchTips="请检查建筑面积" required emptyTips="请输入建筑面积"/></div>
+                            <!-- type="number" 在非chrome浏览器环境下，仅能保证从input.value取到的值是空从而无法提交非数字，无法保证只能输入数字，所以根本没用
+                             若使用了该类型，反而会使无法从input获取输入值导致数值格式校验无法生效，所以应该去掉。-->
+                            <div class="weui-flex__item"><input id="house_area" class="weui-input" placeholder="必填项(数字)" pattern="REG_AREAENUM" notMatchTips="请检查建筑面积数值格式" required emptyTips="请输入建筑面积"/></div>
                             <div class="weui-flex__item"><div class="placeholder">平方米</div></div>
                           </div>
                           <div role="alert" id="house_area_tips" style="display: none;" class="weui-cells__tips weui-cells__tips_warn">请确认数值格式正确</div>
@@ -103,7 +105,7 @@
                         <div class="weui-cell__hd"><span class="weui-label">成交价格</span></div>
                         <div class="weui-cell__bd">
                           <div class="weui-flex">
-                            <div class="weui-flex__item"><input id="price" class="weui-input" placeholder="必填项(数字)" type="number" required pattern="REG_PRICENUM" notMatchTips="请检查成交价格" required emptyTips="请输入成交价格"/></div>
+                            <div class="weui-flex__item"><input id="price" class="weui-input" placeholder="必填项(数字)" required pattern="REG_PRICENUM" notMatchTips="请检查成交价格数值格式" required emptyTips="请输入成交价格"/></div>
                             <!-- <div class="weui-flex__item"><input id="price" class="weui-input" placeholder="必填项(数字)" type="number"/></div> -->
                             <div class="weui-flex__item"><div class="placeholder">元</div></div>
                           </div>
@@ -181,6 +183,7 @@
 
                 var regexp = {
                     regexp: {
+                        CONTRACTNO: /^[0-9]{11}$/,// 这个规则直接写在pattern属性里有bug，不加^$超过11个也允许，加了以后输入什么都报错
                         PRICENUM: /^(([1-9]{1}\d*)|(0{1}))(\.\d{0,2})?$/,   // 两位小数
                         AREAENUM: /^(([1-9]{1}\d*)|(0{1}))(\.\d{0,2})?$/,
                         IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,  // 身份证号
@@ -234,6 +237,8 @@
 
                                 }
                             });
+                        }else{
+                          console.log(error);
                         }
                     }, regexp);
 
@@ -245,21 +250,22 @@
                 });
             });
 
-            function checkNumberValidate(inputItem){
-                if(!$(inputItem).val()) return;
-                var regex = /^(([1-9]{1}\d*)|(0{1}))(\.\d{0,2})?$/
-                var result = regex.test($(inputItem).val());
-                if(inputItem=='#house_area'){
-                    $('#house_area_tips').css('display',result?'none':'block');
-                }
-                if(inputItem=='#price'){
-                    $('#price_tips').css('display',result?'none':'block');
-                }
-            }
+            // function checkNumberValidate(inputItem){
+            //     if(!$(inputItem).val()) return;
+            //     var regex = /^(([1-9]{1}\d*)|(0{1}))(\.\d{0,2})?$/
+            //     var result = regex.test($(inputItem).val());
+            //     if(inputItem=='#house_area'){
+            //         $('#house_area_tips').css('display',result?'none':'block');
+            //     }
+            //     if(inputItem=='#price'){
+            //         $('#price_tips').css('display',result?'none':'block');
+            //     }
+            // }
 
             function checkFormValidate(){
                 var inputChecklist = ['#contract_no','#seller','#buyer','#house_address','#house_area','#certificate_no','#price','#contract_date','#confirm_date'];
                 var formValidate = true;
+                // alert($('#house_area').val());
                 inputChecklist.forEach(function(inputItem){
                     if(!$(inputItem).val()){
                         formValidate = false;
