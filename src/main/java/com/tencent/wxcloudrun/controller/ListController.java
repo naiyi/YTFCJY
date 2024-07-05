@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 
-public class IndexController {
+public class ListController {
 
   /**
    * 主页页面
    * @return API response html
    */
   @GetMapping
-  public String index() {
-    return "index";
+  public String list() {
+    return "list";
   }
 
 }

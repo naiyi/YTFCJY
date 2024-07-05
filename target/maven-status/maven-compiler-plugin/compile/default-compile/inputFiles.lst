@@ -1,0 +1,12 @@
+/app/src/main/java/com/tencent/wxcloudrun/model/Contract.java
+/app/src/main/java/com/tencent/wxcloudrun/dto/ContractRequest.java
+/app/src/main/java/com/tencent/wxcloudrun/controller/ContractController.java
+/app/src/main/java/com/tencent/wxcloudrun/dao/ContractsMapper.java
+/app/src/main/java/com/tencent/wxcloudrun/WxCloudRunApplication.java
+/app/src/main/java/com/tencent/wxcloudrun/RandomStringUtil.java
+/app/src/main/java/com/tencent/wxcloudrun/QRCodeUtil.java
+/app/src/main/java/com/tencent/wxcloudrun/config/ApiResponse.java
+/app/src/main/java/com/tencent/wxcloudrun/controller/TemplateController.java
+/app/src/main/java/com/tencent/wxcloudrun/controller/ListController.java
+/app/src/main/java/com/tencent/wxcloudrun/service/impl/ContractServiceImpl.java
+/app/src/main/java/com/tencent/wxcloudrun/service/ContractService.java

@@ -352,11 +352,6 @@ a{
     border: solid 0px;
 }
 
-.FixPanel {
-    /*position: relative;
-    top: 0px;*/
-}
-
 .Menu {
     background-color: #0268b7;
     height: auto;
@@ -447,10 +442,7 @@ a{
         height:40px;
     }
 
-.SearchResultDataTable tbody tr:nth-of-type(even) td {
-    /*background-color: #D5FFFF;
-    width:80px;*/
-}
+
 .NavigatePanel {
     font-size: 15px;
     font-weight: bold;
@@ -561,9 +553,7 @@ a{
 .PageHeader ul li{
     display: inline-block;
 }
-.PageContainer{
-    
-}
+
 .PageNav{
     margin:0px;
 }

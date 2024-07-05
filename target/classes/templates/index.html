@@ -1,8 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
-  <meta charset="utf-8" />
-  <script src="jquery.min.js" type="text/javascript"></script>
-  <link href="CMS.css" rel="stylesheet">
+    <meta charset="UTF-8">
+  <script src="/jquery.min.js" type="text/javascript"></script>
+  <link href="/CMS.css" rel="stylesheet">
   <style>
       .HouseCode {
           font-size: 45px;
@@ -12,53 +13,57 @@
   </style>
   </head>
   <body>
-    <div>
+    <div th:if="${exist}">
       <table id="tblDetail" border="1" cellpadding="0" cellspacing="0" class="SearchResultTable" style="width: 932px;">
-          <caption>合同详细信息（编号：<a href="tel:20240005329">20240005329</a>）</caption>
+          <caption>合同详细信息（编号：<span th:text="${contract.contract_no}"></span>）</caption>
           <tbody>
-              <tr>
-                  <th><label for="BargainType">合同类型</label></th>
-                  <td>自行成交合同</td>
+              <tr th:switch="${contract.contract_type}">
+                  <th><label for="contract_type">合同类型</label></th>
+                  <td th:case="1">自行成交合同</td>
+                  <td th:case="2">其他</td>
               </tr>
               <tr>
                   <th><label for="BargainDate">签订时间</label></th>
-                  <td>2024-06-04</td>
+                  <td th:text="${contract.contract_date}"></td>
               </tr>
               <tr>
                   <th><label for="Seller">出卖人</label></th>
-                  <td>刘鹏</td>
+                  <td th:text="${contract.seller}"></td>
               </tr>
               <tr>
                   <th><label for="Buyer">买受人</label></th>
-                  <td>杨训磊</td>
+                  <td th:text="${contract.buyer}"></td>
               </tr>
               <tr>
                   <th><label for="Address">房屋地址</label></th>
-                  <td>芝罘区金晖花园108号内8号</td>
+                  <td th:text="${contract.house_address}"></td>
               </tr>
               <tr>
                   <th><label for="Area">建筑面积</label></th>
-                  <td><span>75.97</span>平方米</td>
+                  <td th:text="${contract.house_area}"></td>
               </tr>
               <tr>
                   <th><label for="RightNO">权利证号</label></th>
-                  <td>:烟房权证芝字第225519号</td>
+                  <td th:text="${contract.certificate_no}"></td>
               </tr>
               <tr>
                   <th><label for="Price">成交价格</label></th>
-                  <td>510000元(大写:伍拾壹万元整)</td>
+                  <td th:text="${contract.price}"></td>
               </tr>
               <tr>
                   <th><label for="RecordTime">确认时间</label></th>
-                  <td>2024-06-04</td>
+                  <td th:text="${contract.confirm_date}"></td>
               </tr>
               <tr>
                   <th style="color:red;">当前时间</th>
-                  <td>2024/7/2 15:33:15</td>
+                  <td th:text="${nowTime}"></td>
               </tr>
           </tbody>
       </table>
   </div>
+  <div th:unless="${exist}">
+    <caption>合同记录不存在，请检查地址</caption>
+</div>
   <script type="text/javascript">
       $(function () {
           $('#tblDetail').width($(window).width() - 50);

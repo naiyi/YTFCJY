@@ -1,0 +1,5 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "wxcloud.containerDebug.VPC ProxyTargetEnvID": "prod-6g442cda38802519",
+    "java.configuration.updateBuildConfiguration": "automatic"
+}

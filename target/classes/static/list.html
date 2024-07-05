@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>WeUI</title>
+        <!-- 引入 WeUI CDN 链接 -->
+        <link rel="stylesheet" href="https://res.wx.qq.com/t/wx_fed/weui-source/res/2.5.16/weui.min.css"/>
+        <!-- <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+        <script src="https://res.wx.qq.com/t/wx_fed/weui.js/res/1.2.21/weui.min.js"></script>
+        <script src="jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="page">
+          <div class="page__hd" style="padding-top: 40px;padding-bottom: 40px;">
+            <!-- <h1 class="page__title">List</h1>
+            <p class="page__desc">列表</p> -->
+            <a href="javascript:window.location.href='add.html';" role="button" class="weui-btn weui-btn_default">添加记录</a>
+          </div>
+          <div class="page__bd">
+            <div class="weui-panel weui-panel_access">
+              <div class="weui-panel__hd">已保存数据(按创建时间倒序排列)</div>
+              <div class="weui-panel__bd" id="listContent">
+                  
+              </div>
+          </div>
+
+            
+        </div>
+        <script type="text/javascript">
+            $(function(){
+              var loading = weui.loading('加载中...');
+              $.ajax("/api/getAll", {
+                  method: "POST",
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "json",
+                  data: null,
+              }).done(function (res) {
+                  if (res && res.data !== undefined) {
+                      loading.hide();
+                      fillPage(res.data);
+
+                      $('.weui-media-box__thumb').on('click',function(){
+                        var contrate_date = $(this).attr('contrate_date').replace(/-/g,"");
+                        var seq_code = $(this).attr('seq_code');
+                        window.location.href='qrcode.html?code='+contrate_date+'-'+seq_code;
+                        return false;
+                      });
+                  }
+              });
+            });
+
+            function fillPage(list){
+              if(list.length == 0) return;
+
+              var html = '';
+              list.forEach(element => {
+                html += '<a aria-labelledby="js_p1m1_bd" href="javascript:window.location.href=\'add.html?id='+element.id+'\';" class="weui-media-box weui-media-box_appmsg">';
+                html += '<div aria-hidden="true" class="weui-media-box__hd"><img class="weui-media-box__thumb" contrate_date="'+element.contract_date+'" seq_code="'+element.seq_code+'"  src="demo_qrcode.jpg"></div>';
+                html += '<div aria-hidden="true" id="js_p1m1_bd" class="weui-media-box__bd">';
+                html += '<strong class="weui-media-box__title">出卖人:'+element.seller+'; 买受人:'+element.buyer+'</strong>';
+                html += '<p class="weui-media-box__desc">合同编号:'+element.contract_no+'</p>';  
+                // html += '<p class="weui-media-box__desc">房屋地址:'+element.house_address+'</p>';  
+                html += '<p class="weui-media-box__desc">签订时间:'+element.contract_date+'</p>'; 
+                html += '</div></a>';          
+              });
+
+              $('#listContent').html(html);
+            }            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.ContractsMapper">
+
+    <resultMap id="contractsMapper" type="com.tencent.wxcloudrun.model.Contract">
+        <id property="id" column="id"/>
+        <result property="contract_no" column="contract_no"/>
+        <result property="contract_type" column="contract_type" javaType="java.lang.Integer"/>
+        <result property="contract_date" column="contract_date"/>
+        <result property="seller" column="seller"/>
+        <result property="buyer" column="buyer"/>
+        <result property="house_address" column="house_address"/>
+        <result property="house_area" column="house_area"/>
+        <result property="certificate_no" column="certificate_no"/>
+        <result property="price" column="price"/>
+        <result property="confirm_date" column="confirm_date"/>
+        <result property="create_time" column="create_time" javaType="java.time.LocalDateTime" />
+        <result property="seq_code" column="seq_code" />
+    </resultMap>
+
+    <select id="getContract" resultMap="contractsMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM FCJY
+        WHERE id = #{id}
+    </select>
+
+    <select id="getContractByCode" resultMap="contractsMapper" parameterType="java.lang.String">
+        SELECT *
+        FROM FCJY
+        WHERE seq_code = #{seq_code}
+        limit 1
+    </select>
+
+    <select id="getAllList" resultMap="contractsMapper">
+        SELECT *
+        FROM FCJY
+        ORDER BY create_time desc
+    </select>
+
+    <delete id="removeContract" parameterType="java.lang.Integer">
+        DELETE
+        FROM FCJY
+        where id = #{id}
+        limit 1
+    </delete>
+
+    <!-- 插入或更新，插入时create_time取系统时间，更新时create_time不变 -->
+    <insert id="insertOrUpdateContract" parameterType="com.tencent.wxcloudrun.model.Contract" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `FCJY`(`contract_no`, `contract_type`, `contract_date`, `seller`, `buyer`, `house_address`, `house_area`, `certificate_no`, `price`, `confirm_date`, `create_time`, `seq_code`)
+        VALUE(#{contract_no}, #{contract_type}, #{contract_date}, #{seller}, #{buyer}, #{house_address}, #{house_area}, #{certificate_no}, #{price}, #{confirm_date}, NOW(), #{seq_code}) 
+        ON DUPLICATE KEY UPDATE 
+        contract_no=#{contract_no},
+        contract_type=#{contract_type},
+        contract_date=#{contract_date},
+        seller=#{seller},
+        buyer=#{buyer},
+        house_address=#{house_address},
+        house_area=#{house_area},
+        certificate_no=#{certificate_no},
+        price=#{price},
+        confirm_date=#{confirm_date},
+        create_time=create_time
+    </insert>
+
+</mapper>

@@ -1,0 +1,620 @@
+div, dl, dt, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family:微软雅黑;
+    font-size: 16px;
+    height:100%;
+    padding:0px;
+    margin:0px;
+}
+div {
+    padding: 0px;
+    margin: 0px;
+    display:block;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+    margin-bottom:0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.clearfix {
+    zoom:1;
+}
+    .clearfix::after {
+        content: "\200B";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+.Head {
+    background-color: #FFFFFF;
+    max-width: 780px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 14px;
+}
+
+.Site {
+    float: left;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.Content {
+    max-width: 780px;
+    /*height: 620px;*/
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-top: 10px;
+    border: solid 0px;
+}
+
+.Foot {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    padding: 10px;
+    background: #ececec;
+    text-align: center;
+    height: 100px;
+}
+.Foot span{
+    font-size:15px;
+    line-height:30px;
+}
+
+.MainContentTable {
+    table-layout: fixed;
+    word-wrap: break-word;
+    overflow:auto;
+    border-collapse: collapse;
+    border: solid green 0px;
+    width: 100%;
+    height: 100%;
+}
+.MainContentTable .ContentDivNotice{
+    width:100%;
+    height:240px;
+    border:solid 0px red;
+    overflow:hidden;
+}
+    .MainContentTable .ContentDivContact {
+        margin-top: 8px;
+        width: 100%;
+        /*height: 180px;*/
+        overflow: hidden;
+    }
+    .MainContentTable .ContentDivXZQ {
+        margin-top: 8px;
+        width: 100%;
+        /*height: 90px;*/
+        border: solid 0px red;
+        overflow: hidden;
+    }
+    .MainContentTable .ContentDivLink {
+        margin-top: 8px;
+        width: 100%;
+        height: 30px;
+        border: solid 0px red;
+        overflow: hidden;
+    }
+.MainContentTable tr td ul{
+    overflow:hidden;
+}
+
+    .MainContentTable a {
+        outline: none;
+        text-decoration: none;
+        color: #333;
+    }
+    .MainContentTable .TitleBar {
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid #c3c3c3;
+        color:darkgreen;
+        font-weight:bold;
+        height:38px;
+        line-height:38px;
+        padding-left:5px;
+    }
+    .MainContentTable .TitleBar a{
+        position:absolute;
+        right: 5px;
+        font-size:14px;
+        color:darkgreen;
+    }
+
+    .MainContentTable .ContentXZQ {
+        margin-top: 5px;
+    }
+        .MainContentTable .ContentXZQ li {
+            display:inline-block;
+            border:solid 1px;
+            padding:4px;
+            margin:4px;
+            background-color:lightblue;
+            cursor:pointer;
+        }
+        .MainContentTable .ContentXZQ li:hover{
+            background-color:yellowgreen;
+        }
+
+    .MainContentTable .ContentLink {
+        margin-top: 10px;
+    }
+        .MainContentTable .ContentLink li {
+            display: inline-block;
+            color: black;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    .MainContentTable span {
+        font-weight: bold;
+        color: darkgreen;
+        cursor: text;
+    }
+            .MainContentTable .ContentLink li a:hover {
+                color: red;
+                font-weight: bold;
+            }
+    .MainContentTable .ContentNav {
+        width: 65%;
+        margin:0 auto;
+    }
+        .MainContentTable .ContentNav li {
+            list-style: none;
+            margin-bottom:25px;
+            width:80px;
+            height:100px;
+            border:solid 0px;
+        }
+        .MainContentTable .ContentNav li:hover {
+            border:dotted 0.5px green;
+        }
+        .MainContentTable .ContentNav span {
+            display: block;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .MainContentTable .ContentNav strong {
+            display: block;
+            width: 72px;
+            text-align: center;
+            height: 16px;
+            line-height: 16px;
+            font-size: 16px;
+        }
+        .MainContentTable .ContentNav .ContentNav_SPF {
+            background: url("../Content/Images/CMS/FCJY/spf.png") no-repeat;
+        }
+        .MainContentTable .ContentNav .ContentNav_CLF {
+            background: url("../Content/Images/CMS/FCJY/clf.png") no-repeat;
+        }
+        .MainContentTable .ContentNav .ContentNav_CZ {
+            background: url("../Content/Images/CMS/FCJY/cz.png") no-repeat;
+        }
+        .MainContentTable .ContentNav .ContentNav_ZL {
+            background: url("../Content/Images/CMS/FCJY/zl.png") no-repeat;
+        }
+        .MainContentTable .ContentNav .ContentNav_XT {
+            background: url("../Content/Images/CMS/FCJY/xt.png") no-repeat;
+        }
+        .MainContentTable .ContentNav .ContentNav_CH {
+            background: url("../Content/Images/CMS/FCJY/ch.png") no-repeat;
+        }
+
+    .MainContentTable .ContentNotice {
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+        border: solid 0px;
+    }
+        .MainContentTable .ContentNotice .HighLevel {
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: bold;
+            color: red;
+        }
+        .MainContentTable .ContentNotice li {
+            width: 95%;
+            font-size: 14px;
+            line-height: 14px;
+            border: solid 0px;
+            color: black;
+            margin-bottom: 10px;
+            list-style-type: none;
+            border-bottom: 1px dashed #a0a0a0;
+        }
+            .MainContentTable .ContentNotice li a {
+                width: 75%;
+                height: 25px;
+                float: left;
+                border: solid 0px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                padding-left: -10px;
+                background: url("../Content/Images/CMS/FCJY/point.png") 0 8px no-repeat;
+                text-indent: 15px;
+            }
+            
+            .MainContentTable .ContentNotice li a:hover{
+                color:green;
+            }
+        
+        .MainContentTable .ContentNotice span {
+            float: right;
+            font-size: 12px;
+            padding-bottom: -1px;
+        }
+
+.ContactTable {
+    margin-top: 5px;
+    width: 98%;
+}
+
+    .ContactTable tr {
+        height: 45px;
+    }
+
+    .ContactTable td {
+        color: black;
+        width: 50%;
+        line-height: 18px;
+        margin-left: 4px;
+    }
+    .ContactTable li{
+        margin-top:8px;
+    }
+
+    .ContactTable span {
+        color: lightslategray;
+    }
+
+    .ContactTable .District {
+        color: blueviolet;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 6px;
+    }
+    .ContactTable .Name {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .ContactTable .Phone {
+        color:black;
+        font-size: 15px;
+        font-weight: normal;
+        margin-left: 8px;
+    }
+
+    .ContactTable .Address {
+        margin-left:6px;
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+.HomeHead {
+    border: solid 0px;
+    background-color: #0268b7;
+    width: 100%;
+    height: auto;
+    min-height: 55px;
+    padding: 0px;
+    margin: 0 auto;
+}
+.HomeHeadImage {
+    border:solid 0px;
+    background: url('/Content/Images/CMS/FCJY/head.jpg') center no-repeat;
+    height: 125px;
+}
+.HomeFoot {
+    /*width: 100%;
+    max-width: 960px;*/
+    width: 960px;
+    background-color: whitesmoke;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /*color: #cbd9eb;*/
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.HomeContent {
+    /*width: 100%;
+    max-width: 960px;*/
+    width: 960px;
+    margin: 0 auto 0 auto;
+    left: 0;
+    right: 0;
+    min-height: 600px;
+    border: solid 0px;
+}
+
+.Menu {
+    background-color: #0268b7;
+    height: auto;
+    min-height: 55px;
+    line-height: 55px;
+    margin: auto;
+    /*max-width: 1125px;*/
+    width: 1250px;
+}
+    .Menu ul {
+        overflow: visible;
+    }
+    .Menu ul li {
+        float: left;
+        margin-right: 3px;
+        display: inline;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+    .Menu ul li a {
+        font-size: 18px;
+        color: #FFF;
+        padding: 0px 27px;
+        text-decoration: none;
+        display: inline-block;
+    }
+        .Menu ul li :hover {
+            color:yellowgreen;
+        }
+.MenuActive {
+    background-color: darkblue;
+}
+
+/*.HomePanel{
+    margin:auto; 
+}*/
+
+.SearchForm {
+    margin-top: 5px;
+    text-align: center;
+    border: solid 0px;
+}
+
+    .SearchForm input {
+        width: 200px;
+        margin-right: 5px;
+    }
+
+.SearchResultTable {
+    table-layout: fixed;
+    border-spacing: 0px;
+    /*border-color:yellowgreen;*/
+    border-collapse:collapse;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+    .SearchResultTable caption {
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        padding:10px;
+    }
+
+    .SearchResultTable thead th {
+        text-align: center;
+        background-color: lightblue;
+        border-color:yellowgreen;
+    }
+
+    .SearchResultTable tbody th {
+        width: 75px;
+        text-align: center;
+        background-color: lightblue;
+        vertical-align: middle;
+        border-color: yellowgreen;
+    }
+
+    .SearchResultTable tbody td:hover {
+        font-weight: bold;
+        color: darkblue;
+        cursor: pointer;
+    }
+
+    .SearchResultTable tbody td {
+        padding: 5px;
+        border-color: yellowgreen;
+        height:40px;
+    }
+
+
+.NavigatePanel {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+    margin-top: 5px;
+    padding-bottom: 4px;
+    border-bottom: solid 1px #dddcdc;
+}
+.NavigatePanel .NavigateButton{
+    float:left;
+    margin-left:5px;
+}
+    .NavigatePanel .NavigateTitle {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight:bold;
+        font-family:黑体;
+        font-size:22px;
+    }
+    .NavigatePanel .NavigateTitle:after {
+        content: '详细信息';
+        font-size: 16px;
+        margin-left: 2px;
+        color: gray;
+    }
+        .DetailPanel{
+    margin-top: 10px;
+}
+    .DetailPanel .DetailTable {
+        border: 1px solid #FFA628;
+        border-collapse: collapse;
+		width: 100%;
+    }
+        .DetailPanel .DetailTable tr td {
+            border: 1px solid #FFA628;
+            height: 30px;
+        }
+        .DetailPanel .DetailTable .Title {
+            text-align:center;
+            font-size: 18px;
+            font-weight: bold;
+            padding-left: 8px;
+            background-color: lightcyan;
+        }
+        .DetailPanel .DetailTable .FieldTitle{
+            font-weight:bold;
+            padding-left:8px;
+            background-color:lightgray;
+        }
+        .DetailPanel .DetailTable .FieldName {
+            background-color: #e7e7f1;
+            text-align:right;
+            padding-right:4px;
+        }
+        .DetailPanel .DetailTable .FieldValue {
+            text-align: left;
+            padding-left: 4px;
+        }
+	.DetailPanel .DetailTableList{
+		border: 1px solid #FFA628;
+        border-collapse: collapse;
+		width: 100%;
+	}
+	.DetailPanel .DetailTableList th{
+		height: 45px;
+		text-align: center;
+		background-color: #e7e7f1;
+		border: 1px solid #FFA628;
+	}
+	.DetailPanel .DetailTableList td{
+		text-align: center;
+		height:35px;
+		border: 1px solid #FFA628;
+		word-break:break-all; 
+		word-wrap:break-word;
+	}
+
+    .DetailPanel .StatTableList{
+		border: 1px solid #FFA628;
+        border-collapse: collapse;
+		width: 90%;
+        background-image: url(/Content/Images/watermark/ytfcjy.png);
+	}
+    .DetailPanel .StatTableList th{
+		height: 25px;
+		text-align: center;
+		background-color: #e7e7f1;
+		border: 1px solid #FFA628;
+	}
+	.DetailPanel .StatTableList td{
+		text-align: center;
+		height:20px;
+        padding-right:15px;
+		border: 1px solid #FFA628;
+		word-break:break-all; 
+		word-wrap:break-word;
+	}
+
+    .PageHeader {
+        background-color: #f0f0f0;
+        padding-bottom: 0px;
+        border: solid 0px;
+    }
+.PageHeader ul{
+    overflow:visible;
+}
+.PageHeader ul li{
+    display: inline-block;
+}
+
+.PageNav{
+    margin:0px;
+}
+    .PageNav li {
+        padding: 6px;
+        border-radius: 5px;
+        color: black;
+    }
+        .PageNav li a {
+            font-size: 16px;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .PageNav li :hover {
+            background-color: #3281CD;
+            color: white;
+        }
+    .PageNav .SubMenuActive {
+        background-color: #3281CD;
+        color: white;
+    }
+
+.PageTitle {
+    margin-top: 20px;
+    background-color: #f5f5f5;
+}
+.PageTitleLeft {
+    font-weight: bold;
+    padding: 17px 10px;
+    display: inline-block;
+    border-left: 5px solid #3281CD;
+}
+.PageTitleRight {
+    float: right;
+    font-size: 14px;
+    display: inline-block;
+    padding: 17px 10px;
+}
+.PageContent{
+    margin-top: 20px;
+}
+
+.HTSUpperInput {
+    text-transform: uppercase;
+}
+
+.FYInfo {
+    padding: 1rem .8rem;
+    border: 1px solid #dddcdc;
+    width: 90%;
+    max-width: 120px;
+    overflow: hidden;
+    position: relative;
+    margin: .2rem 0;
+    margin-right: 0px;
+    float: left;
+    margin-right: 1rem;
+    height: 60px;
+    border-radius: 10px;
+    background-image: url(/Content/Images/watermark/ytfcjy.png);
+}
