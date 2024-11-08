@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-  <script src="/jquery.min.js" type="text/javascript"></script>
   <link href="/CMS.css" rel="stylesheet">
   <style>
     .HouseCode {
@@ -68,10 +67,5 @@
   <div th:unless="${exist}">
     <caption>合同记录不存在，请检查地址</caption>
 </div>
-  <script type="text/javascript">
-      $(function () {
-          $('#tblDetail').width($(window).width() - 50);
-      });
-  </script>
   </body>
 </html>
