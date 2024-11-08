@@ -4,8 +4,7 @@
       "name": "ytfcjy",
       "domain": "",
       "ip": "",
-      "mode": "compose",
-      "containerId": "ac69b90657e550432fe7dbfd12fb9fe302c11ffe4f99891300833f989373dba1"
+      "mode": "compose"
     }
   ],
   "config": {
